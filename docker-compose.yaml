@@ -1,0 +1,22 @@
+services:
+
+
+  hello-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - TITLE=${TITLE}
+      - MICROSERVICIO=${MICROSERVICIO}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+    volumes:
+      - ./app.py:/app/app.py
+      - ./templates:/app/templates
+      - ./static:/app/static
+    ports:
+      - 80:80
+    command: ["python", "/app/app.py"]
