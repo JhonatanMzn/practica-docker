@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ microservice }}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ microservice }}</h1>
+        <h2>{{ title }}</h2>
+        <p>Hostname: <strong>{{ hostname }}</strong></p>
+        <p>Time: <strong>{{ current_time }}</strong></p>
+    </div>
+    {% if db_host != 'localhost' %}
+    <div class="container">
+        <h1>Conección a Base de Datos</h1>
+        <p>Host: <strong>{{ db_host }}</strong></p>
+        <p>Puerto: <strong>{{ db_port }}</strong></p>
+        <p>User: <strong>{{ db_user }}</strong></p>
+        <p>Database: <strong>{{ db_name }}</strong></p>
+        
+        <table class="table-container">
+            <thead>
+                <tr>
+                    <th>Lista de tablas en la base de datos:</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for table in tables %}
+                <tr>
+                    <td>{{ table }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    <div class="container">
+        <p>Version: <strong>{{ version }}</strong></p>
+        <p>Environment: <strong>{{ environment }}</strong></p>
+    </div>
+</body>
+</html>
