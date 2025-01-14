@@ -1,6 +1,5 @@
 services:
 
-
   hello-app:
     build:
       context: .
@@ -18,5 +17,5 @@ services:
       - ./templates:/app/templates
       - ./static:/app/static
     ports:
-      - 80:80
+      - 80:9000
     command: ["python", "/app/app.py"]

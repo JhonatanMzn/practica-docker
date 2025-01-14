@@ -16,6 +16,3 @@ RUN pip install --no-cache-dir -r requirements.txt --target=/app/deps
 # Establece la variable de entorno para que Python pueda encontrar las dependencias
 ENV PYTHONPATH=/app/deps
 
-# Exponer el puerto en el que la aplicación escuchará
-EXPOSE 80
-
